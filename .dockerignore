@@ -1,0 +1,25 @@
+Dockerfile
+dev.Dockerfile
+.dockerignore
+docker-compose.yml
+.gitignore
+node_modules
+yarn.lock
+npm-debug.log
+README.md
+.next
+.git
+tmp
+.mailing
+bin
+
+# AWS
+cdk
+buildspec.yml
+
+# Vim swap files
+**/.*.sw[po]
+
+# Local only env file
+.env
+

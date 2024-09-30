@@ -1,0 +1,51 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:13.7
+    volumes:
+      - ./tmp/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+
+  # redis:
+  #   image: redis:7.0
+  #   ports:
+  #     - "6379:6379"
+
+  # Commented out because running the nextjs development server inside Docker
+  # is painful to setup and very slow. Might re-enable in the future tho.
+  #
+  # nextjs:
+  #   platform: linux/amd64
+  #   build:
+  #     context: .
+  #     dockerfile: dev.Dockerfile
+  #     # dockerfile: Dockerfile
+  #     # args:
+  #     #     APP_BRAND: liberty
+  #   env_file: .env
+  #   volumes:
+  #     - .:/app
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - postgres
+  #     - redis
+
+  # ssl:
+  #   build:
+  #     context: docker/ssl
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./tmp/ssl:/etc/nginx/ssl
+  #   environment:
+  #     - PORT=3000
+  #   ports:
+  #     - "443:443"
+  #   # depends_on:
+  #   #   - nextjs
+
